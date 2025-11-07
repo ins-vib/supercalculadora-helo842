@@ -22,11 +22,11 @@ public class Calculadora {
         System.out.println("Suma dels primers 10 números: " + sumaPrimersNumeros(10));
         System.out.println("Suma dels primers 15 números: " + sumaPrimersNumeros(15));
         System.out.println();
-        
+
         // Exemples de crida per al mètode calcularFactorial
-        // System.out.println("Factorial de 5: " + calcularFactorial(5));
-        // System.out.println("Factorial de 7: " + calcularFactorial(7));
-        // System.out.println("Factorial de 10: " + calcularFactorial(10));
+        System.out.println("Factorial de 5: " + calcularFactorial(5));
+        System.out.println("Factorial de 7: " + calcularFactorial(7));
+        System.out.println("Factorial de 10: " + calcularFactorial(10));
 
         // Exemples de crida per al mètode sumaQuadrats
         // System.out.println("Suma dels quadrats dels primers 3 números: " + sumaQuadrats(3));
@@ -49,15 +49,6 @@ public class Calculadora {
      * @return Quantitat de dígits que té {@code nombre}
      */
     
-    public static int sumaPrimersNumeros(int nombre) {
-        int suma = 0;
-        while (nombre != 0){
-            suma += nombre;
-            nombre -= 1;
-        }
-    return suma;
-    }
-
     public static int nombreDigits(int nombre) {
         if (nombre == 0) {
             return 1; // el 0 té un dígit
@@ -68,5 +59,23 @@ public class Calculadora {
             comptador++;
         }
         return comptador;
+    }
+
+    public static int sumaPrimersNumeros(int nombre) {
+    int suma = 0;
+    while (nombre != 0){
+        suma += nombre;
+        nombre -= 1;
+    }
+    return suma;
+    }
+
+    public static int calcularFactorial(int nombre) {
+    int resultat = 1;
+        while (nombre != 0){
+            resultat *= nombre;
+            nombre -= 1;
+        }
+    return resultat;
     }
 }
