@@ -1,11 +1,8 @@
-
-
 package org.yourcompany.calculadora;
-import java.util.Random;
 
 /**
  *
- * @author Posa el teu nom
+ * @author Héctor López Pedrosa
  */
 
 
@@ -18,15 +15,14 @@ public class Calculadora {
         System.out.println("Nombre de dígits de 56789: " + nombreDigits(56789));
         System.out.println("Nombre de dígits de -101010: " + nombreDigits(-101010));
         System.out.println("Nombre de dígits de 0: " + nombreDigits(0));
-
-        System.out.println("Numero de cares amb 50 llançaments: " + numeroCares(50));
-        cine(5,true,true);
+        System.out.println();
 
         // Exemples de crida per al mètode sumaPrimersNumeros
-        // System.out.println("Suma dels primers 5 números: " + sumaPrimersNumeros(5));
-        // System.out.println("Suma dels primers 10 números: " + sumaPrimersNumeros(10));
-        // System.out.println("Suma dels primers 15 números: " + sumaPrimersNumeros(15));
-
+        System.out.println("Suma dels primers 5 números: " + sumaPrimersNumeros(5));
+        System.out.println("Suma dels primers 10 números: " + sumaPrimersNumeros(10));
+        System.out.println("Suma dels primers 15 números: " + sumaPrimersNumeros(15));
+        System.out.println();
+        
         // Exemples de crida per al mètode calcularFactorial
         // System.out.println("Factorial de 5: " + calcularFactorial(5));
         // System.out.println("Factorial de 7: " + calcularFactorial(7));
@@ -52,6 +48,16 @@ public class Calculadora {
      * @param nombre Número del qual es vol saber el nombre de dígits
      * @return Quantitat de dígits que té {@code nombre}
      */
+    
+    public static int sumaPrimersNumeros(int nombre) {
+        int suma = 0;
+        while (nombre != 0){
+            suma += nombre;
+            nombre -= 1;
+        }
+    return suma;
+    }
+
     public static int nombreDigits(int nombre) {
         if (nombre == 0) {
             return 1; // el 0 té un dígit
@@ -62,52 +68,5 @@ public class Calculadora {
             comptador++;
         }
         return comptador;
-    }
-
-    public static int numeroCares (int repeticions) {        
-        Random generador = new Random();
-        
-        int bucle = 1;
-        int cara = 0;
-        int creu = 0;
-
-        while(bucle <= repeticions){
-            bucle = bucle + 1;
-            int tirades = generador.nextInt(0,2);
-            if (tirades == 0){
-                cara = cara+1;
-            }
-            if (tirades == 1){
-                creu = creu + 1;
-            }
-        }
-        return cara;
-    }
-
-    public static double cine (double entrada, boolean tipusdia, boolean carnetjove) {
-
-    //VARIABLES
-    double preuC = entrada+((entrada*10.0)/100.0);
-
-
-    //OPERACIONS-SORTIDA
-
-    if (tipusdia == true){
-        if (carnetjove == true){
-            return entrada-((entrada*15.0)/100.0);
-        }
-        else  {
-            return entrada;
-        }
-    }
-    else {
-            if (carnetjove == true){
-            return (preuC-((preuC*15.0)/100.0));
-        }
-        else {
-            return preuC;
-        }
-
-    }
     }
 }
