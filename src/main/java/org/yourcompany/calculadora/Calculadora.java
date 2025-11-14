@@ -46,6 +46,7 @@ public class Calculadora {
 
     public static void mostrarMenu() {
         Scanner teclat = new Scanner(System.in);
+        System.out.println();
         System.out.println("Menú");
         System.out.println("1. Nombre Digits");
         System.out.println("2. Suma Primers Numeros");
@@ -55,6 +56,7 @@ public class Calculadora {
         System.out.println("0. Sortir");
         System.out.print("Entra una opció: ");
         int opció = teclat.nextInt();
+
         while (opció != 0){
             switch (opció){
                 case 1:
@@ -65,26 +67,47 @@ public class Calculadora {
                 
                 case 2:
                     System.out.print("Entra un numero: ");
+                    nombre = teclat.nextInt();
+                    System.out.println("Suma dels primers " + nombre + " números: " + sumaPrimersNumeros(nombre));
                 break;
                 
                 case 3:
                     System.out.print("Entra un numero: ");
+                    nombre = teclat.nextInt();
+                    System.out.println("Factorial de " + nombre + ": " + calcularFactorial(nombre));
                 break;
                 
                 case 4:
                     System.out.print("Entra un numero: ");
+                    nombre = teclat.nextInt();
+                    System.out.println("Suma dels quadrats dels primers " + nombre + " números: " + sumaQuadrats(nombre));
                 break;
                 
                 case 5:
-                    System.out.print("Entra un numero: ");
+                    System.out.print("Entra un numero per utilitzar de base: ");
+                    int base = teclat.nextInt();
+                    System.out.print("Entra un numero per utilitzar de exponent: ");
+                    int exponent = teclat.nextInt();
+                    System.out.println(base + " elevat a la potència " + exponent + " : " + calcularPotencia(base , exponent));
                 break;
                 
                 default:
                 System.out.println("Opció Incorrecta");
             }
+            System.out.println();
+            System.out.print("Entra una opció: ");
+            opció = teclat.nextInt();
         }
     }
-
+    
+    /**
+     * Calcula el nombre de dígits d’un número enter.
+     * Funciona tant per a nombres positius com negatius.
+     * Si el nombre és 0, retorna 1.
+     *
+     * @param nombre Número del qual es vol saber el nombre de dígits
+     * @return Quantitat de dígits que té {@code nombre}
+     */
     public static int nombreDigits(int nombre) {
         if (nombre == 0) {
             return 1; // el 0 té un dígit
